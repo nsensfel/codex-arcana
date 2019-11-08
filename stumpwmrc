@@ -1,0 +1,263 @@
+(in-package :stumpwm)
+
+(set-prefix-key (kbd "Menu"))
+(setf *STARTUP-MESSAGE* NIL)
+
+
+(setf stumpwm:*screen-mode-line-format*
+   '(:eval (run-shell-command "/vault/script/stumpwm_notificator.scm" t))
+)
+(stumpwm:toggle-mode-line (stumpwm:current-screen)
+                          (stumpwm:current-head))
+
+(defcommand
+   jj-toggle-mode-line
+   ()
+   ()
+    "Toggle the mode line."
+    (toggle-mode-line (current-screen) (current-head))
+)
+
+;; navigation bindings
+(define-key
+   *root-map*
+   (kbd "SPC")
+   "windowlist"
+)
+
+(define-key
+   *root-map*
+   (kbd "-")
+   "jj-toggle-mode-line"
+)
+
+(define-key
+   *root-map*
+   (kbd "XF86Back")
+   "pull-hidden-previous"
+)
+
+(define-key
+   *root-map*
+   (kbd "XF86Forward")
+   "pull-hidden-next"
+)
+
+(define-key
+   *root-map*
+   (kbd "SunPageUp")
+   "pull-hidden-previous"
+)
+
+(define-key
+   *root-map*
+   (kbd "SunPageDown")
+   "pull-hidden-next"
+)
+
+(define-key
+   *root-map*
+   (kbd "S-XF86Back")
+   "gprev"
+)
+
+(define-key
+   *root-map*
+   (kbd "S-XF86Forward")
+   "gnext"
+)
+
+(define-key
+   *root-map*
+   (kbd "S-SunPageUp")
+   "gprev"
+)
+
+(define-key
+   *root-map*
+   (kbd "S-SunPageDown")
+   "gnext"
+)
+
+(define-key
+   *root-map*
+   (kbd "M-XF86Back")
+   "gprev-with-window"
+)
+
+(define-key
+   *root-map*
+   (kbd "M-XF86Forward")
+   "gnext-with-window"
+)
+
+(define-key
+   *root-map*
+   (kbd "M-SunPageUp")
+   "gprev-with-window"
+)
+
+(define-key
+   *root-map*
+   (kbd "M-SunPageDown")
+   "gnext-with-window"
+)
+
+(define-key
+   *root-map*
+   (kbd "9")
+   "delete"
+)
+
+;; window control bindings
+
+(define-key
+   *root-map*
+   (kbd "C-Up")
+   "move-window up"
+)
+
+(define-key
+   *root-map*
+   (kbd "C-Left")
+   "move-window left"
+)
+
+(define-key
+   *root-map*
+   (kbd "End")
+   "restart-hard"
+)
+
+(define-key
+   *root-map*
+   (kbd "quoteleft")
+   "gnew"
+)
+
+(define-key
+   *root-map*
+   (kbd "~")
+   "gkill"
+)
+
+(define-key
+   *root-map*
+   (kbd "C-Down")
+   "move-window down"
+)
+
+(define-key
+   *root-map*
+   (kbd "C-Right")
+   "move-window right"
+)
+
+(setf *window-border-style*
+   :thin)
+
+(setf *input-window-gravity*
+   :top-right)
+
+(setf *message-window-gravity*
+   :top-left)
+
+;; program shortcuts
+(define-key *root-map*
+   (kbd "t")
+   "exec urxvtc")
+
+(define-key *root-map*
+   (kbd "T")
+   "exec urxvtc -xrm ~/.Xdefaults_projector")
+
+(define-key *root-map*
+   (kbd "c")
+   "exec firefox")
+
+(define-key *root-map*
+   (kbd "q")
+   "exec firefox")
+
+(define-key *root-map*
+   (kbd "N")
+   "exec netlogo")
+
+(define-key *root-map*
+   (kbd "M-N")
+   "exec netlogo-3d")
+
+(define-key *root-map*
+   (kbd "C")
+   "exec celestia")
+
+(define-key *root-map*
+   (kbd "M-g")
+   "exec gimp")
+
+;; Communication
+
+;; Tools
+(define-key *root-map*
+   (kbd "@")
+   "exec arandr")
+
+(define-key *root-map*
+   (kbd "h")
+   "exec urxvtc -e htop")
+
+(define-key *root-map*
+   (kbd "b")
+   "eval (run-shell-command \"acpi\" t)")
+
+(define-key *root-map*
+   (kbd "SunPrint_Screen")
+   "exec import -window root /tmp/screenshot.png")
+
+(define-key *root-map*
+   (kbd "F4")
+   "exec redshift -x")
+
+(define-key *root-map*
+   (kbd "F5")
+   "exec redshift -O 2500")
+
+;; Audio stuff
+(define-key *root-map*
+   (kbd "F9")
+   "exec urxvtc -e mocp")
+
+(define-key *root-map*
+   (kbd "F10")
+   "exec mocp --previous")
+
+(define-key *root-map*
+   (kbd "F11")
+   "exec mocp --next")
+
+(define-key *root-map*
+   (kbd "F12")
+   "exec mocp --exit")
+
+(define-key *root-map*
+   (kbd "XF86AudioMute")
+   "exec amixer -c 0 set Master toggle")
+
+(define-key *root-map*
+   (kbd "XF86AudioLowerVolume")
+   "exec urxvtc -e alsamixer")
+
+(define-key *root-map*
+   (kbd "XF86AudioRaiseVolume")
+   "exec urxvtc -e alsamixer")
+
+(define-key *root-map*
+   (kbd "C-RET")
+   "move-window down")
+
+(define-key *root-map*
+   (kbd "RET")
+   "move-focus down")
+
+;; do some goodies at startup
+(run-shell-command "/vault/script/nsensfel_startup.sh")
