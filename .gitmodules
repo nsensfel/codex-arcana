@@ -1,0 +1,12 @@
+[submodule "vim/bundle/dart-vim-plugin"]
+	path = vim/bundle/dart-vim-plugin
+	url = https://github.com/dart-lang/dart-vim-plugin
+[submodule "vim/bundle/elm-vim"]
+	path = vim/bundle/elm-vim
+	url = https://github.com/ElmCast/elm-vim.git
+[submodule "vim/bundle/gruvbox"]
+	path = vim/bundle/gruvbox
+	url = https://github.com/morhetz/gruvbox
+[submodule "vim/bundle/vim-easyclip"]
+	path = vim/bundle/vim-easyclip
+	url = https://github.com/svermeulen/vim-easyclip

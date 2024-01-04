@@ -6,11 +6,8 @@ execute pathogen#infect()
 "Enables syntax coloring.
 syntax on
 
-"Enables rainbow coloring of parenthesis.
-let g:rainbow_active=1
-
 "Sets the color theme.
-let g:gruvbox_italic=1
+"let g:gruvbox_italic=1
 colorscheme gruvbox
 
 "Highlights the 81th column onward.
@@ -63,6 +60,7 @@ inoremap  <Down>   <NOP>
 "Sets the number of tabs that can be opened by 'vim -p'.
 set tabpagemax=255
 
+
 "Creates a shared clipboard between Vim instances.
 set clipboard=unnamedplus
 
@@ -112,7 +110,7 @@ let g:rainbow_conf = {
 
 
 " Enables dark mode for gruvbox
-set background=dark
+"set background=dark
 
 " Keeps the terminal's current background color (and transparency)
 hi Normal          ctermfg=252 ctermbg=none
@@ -137,3 +135,29 @@ set expandtab
 
 let g:typescript_indent_disable = 1
 let g:typescript_compiler_options = '--alwaysStrict --noFallthroughCasesInSwitch --noImplicitAny --noImplicitReturns --noImplicitThis --noUnusedLocals --noUnusedParameters --strict --strictNullChecks'
+
+autocmd FileType cpp setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
+
+"Enables rainbow coloring of parenthesis.
+"let g:rainbow_active=1
+
+"Creates a shared clipboard between Vim instances.
+""set clipboard=unnamed,unnamedplus
+let g:EasyClipShareYanks=1
+let g:EasyClipShareYanksDirectory='/tmp/'
+let g:EasyClipShareYanksFile='.easyclip'
+let g:EasyClipCopyExplicitRegisterToDefault=1
+
+syntax on
+
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_posix_standard = 1
+let g:cpp_experimental_simple_template_highlight = 1
+let g:cpp_concepts_highlight = 1
+
+au VimEnter * RainbowToggle
+
+set t_Co=256

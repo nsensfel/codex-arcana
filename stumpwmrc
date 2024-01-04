@@ -1,14 +1,18 @@
 (in-package :stumpwm)
 
-(set-prefix-key (kbd "Menu"))
+(set-prefix-key (kbd "KP_Add"))
 (setf *STARTUP-MESSAGE* NIL)
 
-
-(setf stumpwm:*screen-mode-line-format*
-   '(:eval (run-shell-command "/vault/script/stumpwm_notificator.scm" t))
-)
 (stumpwm:toggle-mode-line (stumpwm:current-screen)
                           (stumpwm:current-head))
+
+;;(define-key *top-map*
+;;   (kbd "XF86RFKill")
+;;   "eval (set-prefix-key (kbd \"KP_Add\"))")
+
+;;(define-key *top-map*
+;;   (kbd "AKEY")
+;;   "eval (set-prefix-key (kbd \"Menu\"))")
 
 (defcommand
    jj-toggle-mode-line
@@ -26,6 +30,12 @@
 )
 
 (define-key
+   *top-map*
+   (kbd "KP_Insert")
+   "windowlist"
+)
+
+(define-key
    *root-map*
    (kbd "-")
    "jj-toggle-mode-line"
@@ -35,6 +45,18 @@
    *root-map*
    (kbd "XF86Back")
    "pull-hidden-previous"
+)
+
+(define-key
+   *root-map*
+   (kbd "XF86AudioPrev")
+   "pull-hidden-previous"
+)
+
+(define-key
+   *root-map*
+   (kbd "XF86AudioNext")
+   "pull-hidden-next"
 )
 
 (define-key
@@ -56,9 +78,57 @@
 )
 
 (define-key
+   *top-map*
+   (kbd "KP_Page_Up")
+   "pull-hidden-next"
+)
+
+(define-key
+   *top-map*
+   (kbd "KP_Page_Down")
+   "pull-hidden-previous"
+)
+
+(define-key
    *root-map*
    (kbd "S-XF86Back")
    "gprev"
+)
+
+(define-key
+   *top-map*
+   (kbd "KP_Home")
+   "gnext"
+)
+
+(define-key
+   *top-map*
+   (kbd "C-KP_Home")
+   "gnext-with-window"
+)
+
+(define-key
+   *top-map*
+   (kbd "KP_7")
+   "gnext-with-window"
+)
+
+(define-key
+   *top-map*
+   (kbd "KP_End")
+   "gprev"
+)
+
+(define-key
+   *top-map*
+   (kbd "C-KP_End")
+   "gprev-with-window"
+)
+
+(define-key
+   *top-map*
+   (kbd "KP_1")
+   "gprev-with-window"
 )
 
 (define-key
@@ -109,6 +179,30 @@
    "delete"
 )
 
+(define-key
+   *root-map*
+   (kbd "KP_Subtract")
+   "delete"
+)
+
+(define-key
+   *top-map*
+   (kbd "KP_Divide")
+   "hsplit"
+)
+
+(define-key
+   *top-map*
+   (kbd "KP_Multiply")
+   "vsplit"
+)
+
+(define-key
+   *top-map*
+   (kbd "KP_Delete")
+   "remove-split"
+)
+
 ;; window control bindings
 
 (define-key
@@ -119,8 +213,86 @@
 
 (define-key
    *root-map*
-   (kbd "C-Left")
+   (kbd "KP_Begin")
+   "fullscreen"
+)
+
+(define-key
+   *top-map*
+   (kbd "KP_8")
+   "move-window up"
+)
+
+(define-key
+   *top-map*
+   (kbd "C-KP_Up")
+   "move-window up"
+)
+
+(define-key
+   *top-map*
+   (kbd "KP_2")
+   "move-window down"
+)
+
+(define-key
+   *top-map*
+   (kbd "C-KP_Down")
+   "move-window down"
+)
+
+(define-key
+   *top-map*
+   (kbd "KP_6")
+   "move-window right"
+)
+
+(define-key
+   *top-map*
+   (kbd "C-KP_Right")
+   "move-window right"
+)
+
+(define-key
+   *top-map*
+   (kbd "KP_4")
    "move-window left"
+)
+
+(define-key
+   *top-map*
+   (kbd "C-KP_Left")
+   "move-window left"
+)
+
+(define-key
+   *top-map*
+   (kbd "KP_Up")
+   "move-focus up"
+)
+
+(define-key
+   *top-map*
+   (kbd "KP_Down")
+   "move-focus down"
+)
+
+(define-key
+   *top-map*
+   (kbd "KP_Right")
+   "move-focus right"
+)
+
+(define-key
+   *top-map*
+   (kbd "KP_Left")
+   "move-focus left"
+)
+
+(define-key
+   *root-map*
+   (kbd "Left")
+   "move-focus left"
 )
 
 (define-key
@@ -168,10 +340,6 @@
    "exec urxvtc")
 
 (define-key *root-map*
-   (kbd "T")
-   "exec urxvtc -xrm ~/.Xdefaults_projector")
-
-(define-key *root-map*
    (kbd "c")
    "exec firefox")
 
@@ -179,17 +347,6 @@
    (kbd "q")
    "exec firefox")
 
-(define-key *root-map*
-   (kbd "N")
-   "exec netlogo")
-
-(define-key *root-map*
-   (kbd "M-N")
-   "exec netlogo-3d")
-
-(define-key *root-map*
-   (kbd "C")
-   "exec celestia")
 
 (define-key *root-map*
    (kbd "M-g")
@@ -258,6 +415,7 @@
 (define-key *root-map*
    (kbd "RET")
    "move-focus down")
-
+;;(sb-ext:run-program "picom" '("-b" "--vsync" "--backend" "glx" "--no-fading-openclose" "-D" "3" "-i" "1.0") :search t :wait nil) 
 ;; do some goodies at startup
-(run-shell-command "/vault/script/nsensfel_startup.sh")
+(sb-ext:run-program "gentoo-pipewire-launcher" '() :search t :wait nil) 
+(run-shell-command "/home/nsensfel/my/script/nsensfel_startup.sh")
