@@ -1,3 +1,6 @@
+scriptencoding utf-8
+set encoding=utf-8
+
 "Required for mapping commands.
 set nocompatible
 
@@ -114,30 +117,37 @@ let g:rainbow_conf = {
 
 " Keeps the terminal's current background color (and transparency)
 hi Normal          ctermfg=252 ctermbg=none
+"highlight Tabulations ctermfg=red ctermbg=blue guibg=black
+set list
+set listchars=tab:▸·,trail:×
 "Highlights unwanted whitespaces.
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
+call matchadd('Error', '\s\+$')
+call matchadd('Error', '\t\+\ \+')
+call matchadd('Error', '\ \+\t\+')
+"call matchadd('Tabulations', '\t')
 
-highlight Tabulations ctermbg=darkgreen
-autocmd BufWinEnter * match Tabulations /\t\+/
-autocmd InsertEnter * match Tabulations /\t\+/
-"autocmd InsertLeave * match Tabulations /\t\+/
+"autocmd BufWinEnter * match Error /\s\+$/ 2match Tabulations /\t\+/
+"autocmd InsertEnter * match Error /\s\+\%#\@<!$/
+"autocmd InsertLeave * match Error /\s\+$/
+"autocmd BufWinLeave * call clearmatches()
+"
+"autocmd BufWinEnter *
+"autocmd InsertEnter * 2match Tabulations /\t\+/
+"autocmd InsertLeave * 2match Tabulations /\t\+/
+	"tabbed.
+"leading whitespaces:      
+
 "
 "Tabulation settings
 set tabstop=3
 set softtabstop=3
 set shiftwidth=3
-set expandtab
-
+"set expandtab
 let g:typescript_indent_disable = 1
 let g:typescript_compiler_options = '--alwaysStrict --noFallthroughCasesInSwitch --noImplicitAny --noImplicitReturns --noImplicitThis --noUnusedLocals --noUnusedParameters --strict --strictNullChecks'
 
-autocmd FileType cpp setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
-autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType cpp setlocal shiftwidth=3 tabstop=3 softtabstop=3
+autocmd FileType python setlocal shiftwidth=3 tabstop=3 softtabstop=3
 
 "Enables rainbow coloring of parenthesis.
 "let g:rainbow_active=1

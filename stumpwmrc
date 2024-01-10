@@ -418,4 +418,4 @@
 ;;(sb-ext:run-program "picom" '("-b" "--vsync" "--backend" "glx" "--no-fading-openclose" "-D" "3" "-i" "1.0") :search t :wait nil) 
 ;; do some goodies at startup
 (sb-ext:run-program "gentoo-pipewire-launcher" '() :search t :wait nil) 
-(run-shell-command "/home/nsensfel/my/script/nsensfel_startup.sh")
+(run-shell-command "/home/nsensfel/scripts/nsensfel_startup.sh")
