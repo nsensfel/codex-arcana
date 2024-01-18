@@ -368,7 +368,7 @@
    "eval (run-shell-command \"acpi\" t)")
 
 (define-key *root-map*
-   (kbd "SunPrint_Screen")
+   (kbd "F12")
    "exec import -window root /tmp/screenshot.png")
 
 (define-key *root-map*
@@ -391,10 +391,6 @@
 (define-key *root-map*
    (kbd "F11")
    "exec mocp --next")
-
-(define-key *root-map*
-   (kbd "F12")
-   "exec mocp --exit")
 
 (define-key *root-map*
    (kbd "XF86AudioMute")

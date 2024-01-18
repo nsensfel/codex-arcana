@@ -146,8 +146,8 @@ set shiftwidth=3
 let g:typescript_indent_disable = 1
 let g:typescript_compiler_options = '--alwaysStrict --noFallthroughCasesInSwitch --noImplicitAny --noImplicitReturns --noImplicitThis --noUnusedLocals --noUnusedParameters --strict --strictNullChecks'
 
-autocmd FileType cpp setlocal shiftwidth=3 tabstop=3 softtabstop=3
-autocmd FileType python setlocal shiftwidth=3 tabstop=3 softtabstop=3
+"autocmd FileType cpp setlocal shiftwidth=3 tabstop=3 softtabstop=3
+"autocmd FileType python setlocal shiftwidth=3 tabstop=3 softtabstop=3
 
 "Enables rainbow coloring of parenthesis.
 "let g:rainbow_active=1
@@ -169,5 +169,5 @@ let g:cpp_experimental_simple_template_highlight = 1
 let g:cpp_concepts_highlight = 1
 
 au VimEnter * RainbowToggle
-
+let g:python_recommended_style = 0
 set t_Co=256
