@@ -411,7 +411,50 @@
 (define-key *root-map*
    (kbd "RET")
    "move-focus down")
-;;(sb-ext:run-program "picom" '("-b" "--vsync" "--backend" "glx" "--no-fading-openclose" "-D" "3" "-i" "1.0") :search t :wait nil) 
+
+(setq *mouse-focus-policy* :click)
+(run-shell-command "xsetroot -cursor_name left_ptr")
+
+(setf *colors*
+      '("#2E3440"                       ; black
+        "#BF616A"                       ; red
+        "#A3BE8C"                       ; green
+        "#EBCB8B"                       ; yellow
+        "#5E81AC"                       ; blue
+        "#B48EAD"                       ; magenta
+        "#88C0D0"                       ; cyan
+        "#ECEFF4"                       ; white
+        "#A3BE8C"                       ; spring-green
+        "#D8DEE9"                       ; gray9
+        ))
+
+(update-color-map (current-screen))
+
+(defparameter *foreground-color* "#ECEFF4")
+;; (defparameter *background-color* "#2E3440")
+(defparameter *background-color* "#272C36")
+(defparameter *border-color* "#5E81AC")
+
+(setf *message-window-gravity* :center
+      *input-window-gravity* :center
+      *window-border-style* :thin
+)
+(set-fg-color *foreground-color*)
+(set-bg-color *background-color*)
+(set-border-color *border-color*)
+
+(set-focus-color *border-color*)
+(set-unfocus-color *background-color*)
+
+(setf *bar-med-color* "^B^8")
+(setf *bar-hi-color* "^B^4")
+(setf *bar-crit-color* "^B^1")
+(setf *hidden-window-color* "^7")
+;; the foreground is the highlight for the windows too
+(setf *mode-line-background-color* *background-color*)
+(setf *mode-line-foreground-color* *foreground-color*)
+
+;;(sb-ext:run-program "picom" '("-b" "--vsync" "--backend" "glx" "--no-fading-openclose" "-D" "3" "-i" "1.0") :search t :wait nil)
 ;; do some goodies at startup
-(sb-ext:run-program "gentoo-pipewire-launcher" '() :search t :wait nil) 
+(sb-ext:run-program "gentoo-pipewire-launcher" '() :search t :wait nil)
 (run-shell-command "/home/nsensfel/scripts/nsensfel_startup.sh")

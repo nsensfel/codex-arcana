@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
-let g:netrw_dirhist_3='/home/nsensfel/src/qemu/include/hw/hdl'
-let g:netrw_dirhist_2='/home/nsensfel/src/elsys/qemu-riscv-to-python'
-let g:netrw_dirhist_1='/home/nsensfel/src/tiny-risc-v-project/src'
