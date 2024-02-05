@@ -5,7 +5,7 @@
 
 (in-package :stumpwm)
 
-(setf main-border-width 1)
+(setf main-border-width 2)
 
 ;;;; Windows ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Variables listed in "5.2 Customizing Window Appearance"

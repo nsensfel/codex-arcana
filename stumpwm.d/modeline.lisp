@@ -16,7 +16,7 @@
 
 ;; Specifies the number of padding pixels between the text and the side of the
 ;; mode line. Integer value.
-(setf *mode-line-pad-x* 2)
+(setf *mode-line-pad-x* 5)
 
 ;; The number of padding pixels between the modeline text and the top/bottom of
 ;; the modeline. Integer value.
