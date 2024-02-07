@@ -7,6 +7,9 @@
 
 (setf main-border-width 2)
 
+(setf *input-window-gravity* :center)
+(setf *message-window-gravity* :center)
+
 ;;;; Windows ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Variables listed in "5.2 Customizing Window Appearance"
 

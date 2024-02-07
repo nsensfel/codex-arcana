@@ -15,3 +15,6 @@
 )
 
 (define-key *root-map* (kbd "-") "jj-toggle-mode-line")
+
+(define-key *root-map* (kbd "quoteleft") "gnew")
+(define-key *root-map* (kbd "~") "gkill")

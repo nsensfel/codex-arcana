@@ -32,5 +32,6 @@
 (load "~/.stumpwm.d/mouse.lisp")
 
 (sb-ext:run-program "picom" '() :search t :wait nil)
+(sb-ext:run-program "urxvtd" '() :search t :wait nil)
 (sb-ext:run-program "gentoo-pipewire-launcher" '() :search t :wait nil)
 (run-shell-command "/home/nsensfel/scripts/nsensfel_startup.sh")
