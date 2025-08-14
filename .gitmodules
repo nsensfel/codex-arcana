@@ -13,3 +13,6 @@
 [submodule "vim/bundle/gruvbox-material"]
 	path = vim/bundle/gruvbox-material
 	url = https://github.com/sainnhe/gruvbox-material
+[submodule "vim/bundle/vim-indent-guides"]
+	path = vim/bundle/vim-indent-guides
+	url = git@github.com:preservim/vim-indent-guides.git

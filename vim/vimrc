@@ -116,7 +116,7 @@ let g:syntastic_enable_signs=1
 
 " Enables dark mode for gruvbox
 "set background=dark
-
+let g:indent_guides_enable_on_vim_startup = 1
 " Keeps the terminal's current background color (and transparency)
 hi Normal          ctermfg=252 ctermbg=none
 "highlight Tabulations ctermfg=red ctermbg=blue guibg=black
@@ -137,6 +137,11 @@ call matchadd('Error', '\ \+\t\+')
 "autocmd InsertEnter * 2match Tabulations /\t\+/
 "autocmd InsertLeave * 2match Tabulations /\t\+/
 	"tabbed.
+		"tabbed 2
+			"tabbed 2
+   "space indent.
+      "space indent. 2 levels.
+         "space indent. 3 levels.
 "leading whitespaces:      
 
 "
@@ -150,7 +155,7 @@ let g:typescript_compiler_options = '--alwaysStrict --noFallthroughCasesInSwitch
 
 "autocmd FileType cpp setlocal shiftwidth=3 tabstop=3 softtabstop=3
 "autocmd FileType python setlocal shiftwidth=3 tabstop=3 softtabstop=3
-
+autocmd FileType gren setlocal expandtab
 "Enables rainbow coloring of parenthesis.
 "let g:rainbow_active=1
 
