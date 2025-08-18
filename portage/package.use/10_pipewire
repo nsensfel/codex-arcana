@@ -1,0 +1,4 @@
+media-video/pipewire sound-server extra
+media-video/wireplumber elogind
+
+media-libs/libsndfile minimal

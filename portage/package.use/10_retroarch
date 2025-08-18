@@ -1,0 +1,7 @@
+games-emulation/retroarch libcaca materialui qt5 sdl2 sixel stripes xrandr xmb xv
+
+games-emulation/mednafen flac alsa
+games-emulation/desmume openal
+games-emulation/mupen64plus audio-sdl input-sdl rsp-hle ui-console ui-m64py video-glide64mk2 video-rice
+
+dev-python/PyQt5 widgets opengl gui

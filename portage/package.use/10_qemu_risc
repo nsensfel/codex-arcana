@@ -1,0 +1,4 @@
+app-emulation/qemu qemu_user_targets_riscv32
+app-emulation/qemu qemu_user_targets_riscv64
+app-emulation/qemu qemu_softmmu_targets_riscv32
+app-emulation/qemu qemu_softmmu_targets_riscv64
