@@ -37,7 +37,8 @@ let b:rainbow_conf = g:rainbow_conf
 
 "Sets the color theme.
 "let g:gruvbox_italic=1
-colorscheme gruvbox
+colorscheme slate
+"colorscheme gruvbox
 
 "Highlights the 81th column onward.
 let &colorcolumn=join(range(81,999),",")
@@ -119,6 +120,8 @@ let g:syntastic_enable_signs=1
 let g:indent_guides_enable_on_vim_startup = 1
 " Keeps the terminal's current background color (and transparency)
 hi Normal          ctermfg=252 ctermbg=none
+" Some typssso to check.
+
 "highlight Tabulations ctermfg=red ctermbg=blue guibg=black
 set list
 set listchars=tab:▸·,trail:×
@@ -176,3 +179,42 @@ let g:cpp_concepts_highlight = 1
 au VimEnter * RainbowToggleOn
 let g:python_recommended_style = 0
 set t_Co=256
+
+" Force to use underline for spell check results
+augroup SpellUnderline
+	autocmd!
+	autocmd ColorScheme *
+	\ highlight SpellBad
+	\	cterm=Underline
+	\	ctermfg=NONE
+	\	ctermbg=NONE
+	\	term=Reverse
+	\	gui=Undercurl
+	\	guisp=Red
+  autocmd ColorScheme *
+	\ highlight SpellCap
+	\	cterm=Underline
+	\	ctermfg=NONE
+	\	ctermbg=NONE
+	\	term=Reverse
+	\	gui=Undercurl
+	\	guisp=Red
+  autocmd ColorScheme *
+	\ highlight SpellLocal
+	\	cterm=Underline
+	\	ctermfg=NONE
+	\	ctermbg=NONE
+	\	term=Reverse
+	\	gui=Undercurl
+	\	guisp=Red
+  autocmd ColorScheme *
+	\ highlight SpellRare
+	\	cterm=Underline
+	\	ctermfg=NONE
+	\	ctermbg=NONE
+	\	term=Reverse
+	\	gui=Undercurl
+	\	guisp=Red
+augroup END
+
+colorscheme gruvbox-material
