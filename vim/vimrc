@@ -216,5 +216,7 @@ augroup SpellUnderline
 	\	gui=Undercurl
 	\	guisp=Red
 augroup END
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=16
 
 colorscheme gruvbox-material
