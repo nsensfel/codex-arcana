@@ -146,7 +146,7 @@ call matchadd('Error', '\ \+\t\+')
       "space indent. 2 levels.
          "space indent. 3 levels.
 "leading whitespaces:      
-
+         
 "
 "Tabulation settings
 set tabstop=3
@@ -159,6 +159,7 @@ let g:typescript_compiler_options = '--alwaysStrict --noFallthroughCasesInSwitch
 "autocmd FileType cpp setlocal shiftwidth=3 tabstop=3 softtabstop=3
 "autocmd FileType python setlocal shiftwidth=3 tabstop=3 softtabstop=3
 autocmd FileType gren setlocal expandtab
+autocmd BufNewFile,BufRead *.c,*.h,*.asm call matchadd('Error', '\w\{32,\}')
 "Enables rainbow coloring of parenthesis.
 "let g:rainbow_active=1
 
@@ -211,6 +212,14 @@ augroup SpellUnderline
 	\ highlight SpellRare
 	\	cterm=Underline
 	\	ctermfg=NONE
+	\	ctermbg=NONE
+	\	term=Reverse
+	\	gui=Undercurl
+	\	guisp=Red
+  autocmd ColorScheme *
+	\ highlight! Error
+	\	cterm=Underline
+	\	ctermfg=1
 	\	ctermbg=NONE
 	\	term=Reverse
 	\	gui=Undercurl
