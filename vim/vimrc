@@ -57,13 +57,16 @@ set hlsearch   "Highlight matches.
 :imap <F4> <ESC>:tabprevious<cr>
 :imap <F5> <ESC>:tabnext<cr>
 
+:map  <F1> :NERDTreeToggle<cr>
+:imap <F1> <ESC>:NERDTreeToggle<cr>
+
 "Spell mapping.
-:map  <F1> :set spell spelllang=en_us<cr>
-:map  <F2> :set spell spelllang=fr<cr>
-:map  <F3> :set nospell<cr>
-:imap <F1> <ESC>:set spell spelllang=en_us<cr>
-:imap <F2> <ESC>:set spell spelllang=fr<cr>
-:imap <F3> <ESC>:set nospell<cr>
+:map  <F2> :set spell spelllang=en_us<cr>
+:map  <F3> :set spell spelllang=fr<cr>
+:map  <F6> :set nospell<cr>
+:imap <F2> <ESC>:set spell spelllang=en_us<cr>
+:imap <F3> <ESC>:set spell spelllang=fr<cr>
+:imap <F6> <ESC>:set nospell<cr>
 :nnoremap ` a<C-X><C-S>
 
 "Vim uses 2 spaces for LISP, I prefer 3.
@@ -115,6 +118,16 @@ let b:is_chicken=1
 let g:syntastic_enable_signs=1
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""" NERDTree """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let NERDTreeMapOpenInTab='T'
+let NERDTreeMapOpenInTabSilent='t'
+let NERDTreeMapActivateNode='<ENTER>'
+
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enables dark mode for gruvbox
 "set background=dark
 let g:indent_guides_enable_on_vim_startup = 1

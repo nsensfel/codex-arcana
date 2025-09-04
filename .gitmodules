@@ -19,3 +19,6 @@
 [submodule "vim/bundle/gren.vim"]
 	path = vim/bundle/gren.vim
 	url = https://github.com/nsensfel/gren.vim
+[submodule "vim/bundle/nerdtree"]
+	path = vim/bundle/nerdtree
+	url = https://github.com/preservim/nerdtree
