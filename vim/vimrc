@@ -57,8 +57,8 @@ set hlsearch   "Highlight matches.
 :imap <F4> <ESC>:tabprevious<cr>
 :imap <F5> <ESC>:tabnext<cr>
 
-:map  <F1> :NERDTreeToggle<cr>
-:imap <F1> <ESC>:NERDTreeToggle<cr>
+:map  <F1> :call ToggleTree()<cr>
+:imap <F1> <ESC>:call ToggleTree()<cr>
 
 "Spell mapping.
 :map  <F2> :set spell spelllang=en_us<cr>
@@ -126,6 +126,27 @@ let NERDTreeMapOpenInTabSilent='t'
 let NERDTreeMapActivateNode='<ENTER>'
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+function! IsNERDTreeOpen()
+  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+endfunction
+
+function! CheckIfCurrentBufferIsFile()
+  return strlen(expand('%')) > 0
+endfunction
+
+function! ToggleTree()
+  if CheckIfCurrentBufferIsFile()
+    if IsNERDTreeOpen()
+      NERDTreeClose
+    else
+      NERDTreeFind
+    endif
+  else
+    NERDTree
+  endif
+endfunction
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enables dark mode for gruvbox
