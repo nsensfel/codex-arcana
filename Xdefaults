@@ -32,7 +32,7 @@ urxvt*internalBorder:0
 URxvt.saveLines: 32767
 URxvt.scrollBar: false
 
-# gruvbox color theme:
+! gruvbox color theme:
 ! hard contrast: *background: #1d2021
 *background: #282828
 ! soft contrast: *background: #32302f
@@ -62,7 +62,7 @@ URxvt.scrollBar: false
 *color7:  #a89984
 *color15: #ebdbb2
 
-# urxvt specific gruvbox colors
+! urxvt specific gruvbox colors
 
 URxvt.color24:  #076678
 URxvt.color66:  #427b58
