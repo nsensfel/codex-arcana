@@ -60,4 +60,4 @@
 (package! treesit-auto)
 
 ;; Incorrect: this causes issues with Doom doctor:
-;; (package! gren-mode :recipe (:host github :repo "MaeBrooks/gren-mode"))
+(package! gren-ts-mode :recipe (:host github :repo "MaeBrooks/gren-mode"))

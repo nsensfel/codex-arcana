@@ -116,7 +116,7 @@
 ;; Hooks to Disable Tabs
 (add-hook 'lisp-mode-hook 'enable-tabs)
 (add-hook 'emacs-lisp-mode-hook 'enable-tabs)
-;;(add-hook 'gren-mode-hook 'disable-tabs)
+(add-hook 'gren-ts-mode-hook 'disable-tabs)
 
 ;; Language-Specific Tweaks
 (setq-default python-indent-offset custom-tab-width) ;; Python
@@ -181,14 +181,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; MISC PACKAGES ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Trying an alternative to use this package, but it causes issue this way too
-;;(straight-use-package
-;;	'(gren-mode
-;;		:type git
-;;		:repo "https://github.com/MaeBrooks/gren-mode"
-;;	)
-;;)
-;;(load "gren-mode.el")
-
+(use-package! gren-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
