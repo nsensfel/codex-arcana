@@ -55,3 +55,5 @@
 (package! rainbow-delimiters)
 (package! indent-bars :disable t)
 (package! highlight-indent-guides)
+(package! tree-sitter)
+(package! tree-sitter-langs)
