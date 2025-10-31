@@ -57,3 +57,7 @@
 (package! highlight-indent-guides)
 (package! tree-sitter)
 (package! tree-sitter-langs)
+(package! treesit-auto)
+
+;; Incorrect: this causes issues with Doom doctor:
+;; (package! gren-mode :recipe (:host github :repo "MaeBrooks/gren-mode"))
