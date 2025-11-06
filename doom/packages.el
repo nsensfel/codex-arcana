@@ -58,6 +58,6 @@
 (package! tree-sitter)
 (package! tree-sitter-langs)
 (package! treesit-auto)
+(package! matlab-mode)
 
-;; Incorrect: this causes issues with Doom doctor:
 (package! gren-ts-mode :recipe (:host github :repo "MaeBrooks/gren-mode"))

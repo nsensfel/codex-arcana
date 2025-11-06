@@ -117,6 +117,7 @@
 ;; Hooks to Disable Tabs
 (add-hook 'lisp-mode-hook 'enable-tabs)
 (add-hook 'emacs-lisp-mode-hook 'enable-tabs)
+(add-hook 'tlc-mode-hook 'enable-tabs)
 (add-hook 'gren-ts-mode-hook 'disable-tabs)
 
 ;; Language-Specific Tweaks
