@@ -103,13 +103,19 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Create a variable for our preferred tab width
 (setq custom-tab-width 3)
+(setq c-basic-offset custom-tab-width)
 
 ;; Two callable functions for enabling/disabling tabs in Emacs
-(defun disable-tabs () (setq indent-tabs-mode nil))
+(defun disable-tabs ()
+	(setq indent-tabs-mode nil)
+	(setq c-basic-offset custom-tab-width)
+)
+
 (defun enable-tabs ()
 	(local-set-key (kbd "TAB") 'tab-to-tab-stop)
 	(setq indent-tabs-mode t)
 	(setq tab-width custom-tab-width)
+	(setq c-basic-offset custom-tab-width)
 )
 
 ;; Hooks to Enable Tabs
@@ -164,11 +170,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; TABS BAR ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(setq display-buffer-base-action '(display-buffer-in-tab))
-(map!
-	:n "<f4>" #'previous-buffer
-	:n "<f5>" #'next-buffer
-)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; KEYBINDINGS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
