@@ -177,8 +177,11 @@
 
 (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 
-(setq lsp-enable-on-type-formatting 'nil)
-
+(after! lsp-mode
+	(setq lsp-enable-on-type-formatting nil)
+	(setq lsp-enable-indentation nil)
+)
+(setq-hook! 'python-mode-hook lsp-enable-relative-indentation nil)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; 80 CHARACTERS LIMIT ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
