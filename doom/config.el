@@ -119,7 +119,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Create a variable for our preferred tab width
 (setq custom-tab-width 3)
-(setq c-basic-offset custom-tab-width)
 
 ;; Two callable functions for enabling/disabling tabs in Emacs
 (defun disable-tabs ()
@@ -132,6 +131,9 @@
 	(setq indent-tabs-mode t)
 	(setq tab-width custom-tab-width)
 	(setq c-basic-offset custom-tab-width)
+	(setq c-indent-offset custom-tab-width)
+	(setq python-indent-offset custom-tab-width)
+	(setq lisp-indent-offset custom-tab-width)
 )
 
 ;; Hooks to Enable Tabs
@@ -177,11 +179,12 @@
 
 (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 
-(after! lsp-mode
+(after! eglot-mode
 	(setq lsp-enable-on-type-formatting nil)
 	(setq lsp-enable-indentation nil)
+	(setq lsp-enable-relative-indentation nil)
 )
-(setq-hook! 'python-mode-hook lsp-enable-relative-indentation nil)
+;;(setq-hook! 'python-mode-hook lsp-enable-relative-indentation nil)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; 80 CHARACTERS LIMIT ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
