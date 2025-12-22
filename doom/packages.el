@@ -55,9 +55,9 @@
 (package! rainbow-delimiters)
 (package! indent-bars :disable t)
 (package! highlight-indent-guides)
-(package! tree-sitter)
-(package! tree-sitter-langs)
-(package! treesit-auto)
+;;(package! tree-sitter)
+;;(package! tree-sitter-langs)
+;;(package! treesit-auto)
 (package! matlab-mode)
 
 (package! gren-ts-mode :recipe (:host github :repo "MaeBrooks/gren-mode"))

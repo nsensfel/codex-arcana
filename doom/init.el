@@ -118,7 +118,7 @@
 	;;ada               ; In strong typing we (blindly) trust
 	;;agda              ; types of types of types of types...
 	;;beancount         ; mind the GAAP
-	(cc +lsp)         ; C > C++ == 1
+	(cc +lsp +tree-sitter)         ; C > C++ == 1
 	;;clojure           ; java with a lisp
 	;;common-lisp       ; if you've seen one lisp, you've seen them all
 	;;coq               ; proofs-as-programs
@@ -130,7 +130,7 @@
 	;;elixir            ; erlang done right
 	;;elm               ; care for a cup of TEA?
 	emacs-lisp        ; drown in parentheses
-	erlang            ; an elegant language for a more civilized age
+	(erlang +tree-sitter)            ; an elegant language for a more civilized age
 	;;ess               ; emacs speaks statistics
 	;;factor
 	;;faust             ; dsp, but you get to keep your soul
@@ -163,7 +163,7 @@
 	;;plantuml          ; diagrams for confusing people more
 	;;graphviz          ; diagrams for confusing yourself even more
 	;;purescript        ; javascript, but functional
-	(python +pyenv +lsp)            ; beautiful is better than ugly
+	(python +pyenv +lsp +tree-sitter)            ; beautiful is better than ugly
 	;;qt                ; the 'cutest' gui framework ever
 	;;racket            ; a DSL for DSLs
 	;;raku              ; the artist formerly known as perl6

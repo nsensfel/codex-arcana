@@ -82,13 +82,13 @@
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'text-mode-hook 'rainbow-delimiters-mode)
 
-(global-tree-sitter-mode)
-(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+;;(global-tree-sitter-mode)
+;;(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 
-(use-package! treesit-auto
-	:config
-		(global-treesit-auto-mode)
-)
+;;(use-package! treesit-auto
+;;	:config
+;;		(global-treesit-auto-mode)
+;;)
 (use-package! corfu
 	:custom
 		(corfu-cycle t)           ;; Enable cycling for `corfu-next/previous'
@@ -204,13 +204,13 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; TREESITTER CONFIGURATION ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'treesit-language-source-alist
-	'(gren "https://github.com/MaeBrooks/tree-sitter-gren")
-)
+;;(add-to-list 'treesit-language-source-alist
+;;	'(gren "https://github.com/MaeBrooks/tree-sitter-gren")
+;;)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; MISC PACKAGES ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(load "gren-mode.el")
+;;(load "gren-mode.el")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; SPELLING ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
