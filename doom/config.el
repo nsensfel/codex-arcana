@@ -84,11 +84,17 @@
 
 ;;(global-tree-sitter-mode)
 ;;(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
-
+;;(add-hook 'treesit- #'tree-sitter-hl-mode)
+(setq treesit-font-lock-level 4)
 ;;(use-package! treesit-auto
 ;;	:config
 ;;		(global-treesit-auto-mode)
 ;;)
+(use-package! eglot
+	:custom
+		(eglot-ignored-server-capabilities '(:documentOnTypeFormattingProvider))
+)
+
 (use-package! corfu
 	:custom
 		(corfu-cycle t)           ;; Enable cycling for `corfu-next/previous'
@@ -124,6 +130,7 @@
 (defun disable-tabs ()
 	(setq indent-tabs-mode nil)
 	(setq c-basic-offset custom-tab-width)
+	(setq c-ts-mode-indent-offset custom-tab-width)
 )
 
 (defun enable-tabs ()
@@ -131,9 +138,10 @@
 	(setq indent-tabs-mode t)
 	(setq tab-width custom-tab-width)
 	(setq c-basic-offset custom-tab-width)
-	(setq c-indent-offset custom-tab-width)
 	(setq python-indent-offset custom-tab-width)
 	(setq lisp-indent-offset custom-tab-width)
+	(setq c-ts-mode-indent-offset custom-tab-width)
+	(setq c-ts-mode-indent-style "bsd")
 )
 
 ;; Hooks to Enable Tabs
@@ -143,6 +151,8 @@
 (add-hook 'tlc-mode-hook 'enable-tabs)
 (add-hook 'python-mode-hook 'enable-tabs)
 (add-hook 'text-mode-hook 'enable-tabs)
+(add-hook 'c-mode-hook 'enable-tabs)
+(add-hook 'c-ts-mode-hook 'enable-tabs)
 
 ;; Hooks to Disable Tabs
 (add-hook 'gren-ts-mode-hook 'disable-tabs)
@@ -178,12 +188,12 @@
 (global-whitespace-mode) ; Enable whitespace mode everywhere
 
 (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
-
-(after! eglot-mode
-	(setq lsp-enable-on-type-formatting nil)
-	(setq lsp-enable-indentation nil)
-	(setq lsp-enable-relative-indentation nil)
-)
+;;(add-hook 'c-ts-mode-hook (setq-local indent-line-function 'indent-relative))
+;;(after! lsp-mode
+;;	(setq lsp-enable-on-type-formatting nil)
+;;	(setq lsp-enable-indentation nil)
+;;	(setq lsp-enable-relative-indentation nil)
+;;)
 ;;(setq-hook! 'python-mode-hook lsp-enable-relative-indentation nil)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; 80 CHARACTERS LIMIT ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
