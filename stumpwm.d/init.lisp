@@ -36,3 +36,4 @@
 (sb-ext:run-program "xrdb" '("-merge" "/home/nsensfel/.Xresources") :search t :wait nil)
 (run-shell-command "/home/nsensfel/scripts/nsensfel_startup.sh")
 (sb-ext:run-program "picom" '() :search t :wait nil)
+(sb-ext:run-program "emacs" '("--daemon") :search t :wait nil)
