@@ -59,5 +59,3 @@
 ;;(package! tree-sitter-langs)
 ;;(package! treesit-auto)
 (package! matlab-mode)
-
-(package! gren-ts-mode :recipe (:host github :repo "MaeBrooks/gren-mode"))
