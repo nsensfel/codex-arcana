@@ -36,7 +36,7 @@
 (setq doom-font "Hermit")
 (setq doom-font (font-spec :size 20))
 
-(setq fancy-splash-image (concat doom-private-dir "splash.png"))
+(setq fancy-splash-image (concat doom-private-dir "splash.svg"))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.

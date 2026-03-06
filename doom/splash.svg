@@ -3,10 +3,10 @@
    id="svg"
    fill="#ffffff"
    stroke="#ffffff"
-   width="149.739"
-   height="149.739"
+   width="299.478"
+   height="299.478"
    version="1.1"
-   viewBox="144 144 383.33184 383.33184"
+   viewBox="144 144 766.664 766.66401"
    sodipodi:docname="splash.svg"
    inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
    inkscape:export-filename="splash.png"
@@ -28,25 +28,25 @@
      inkscape:pagecheckerboard="true"
      inkscape:deskcolor="#d1d1d1"
      inkscape:zoom="4.255"
-     inkscape:cx="74.618096"
-     inkscape:cy="96.709753"
-     inkscape:window-width="1920"
-     inkscape:window-height="1111"
-     inkscape:window-x="-9"
-     inkscape:window-y="-9"
+     inkscape:cx="149.82374"
+     inkscape:cy="99.529965"
+     inkscape:window-width="3840"
+     inkscape:window-height="1529"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg" />
   <g
      id="IconSvg_bgCarrier"
      stroke-width="0"
-     transform="translate(-64.868948,-157.61974)" />
+     transform="translate(126.79711,-150.29515)" />
   <g
      id="IconSvg_tracerCarrier"
      stroke-linecap="round"
      stroke-linejoin="round"
      stroke="#cccccc"
      stroke-width="0"
-     transform="translate(-64.868948,-65.44908)">
+     transform="matrix(2,0,0,2,-273.7379,-274.898)">
     <g
        id="g6">
       <path
@@ -71,7 +71,7 @@
   </g>
   <g
      id="IconSvg_iconCarrier"
-     transform="translate(-64.868948,-65.44908)">
+     transform="matrix(2,0,0,2,-273.7379,-274.898)">
     <g
        id="g12">
       <path
