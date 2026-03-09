@@ -59,3 +59,4 @@
 ;;(package! tree-sitter-langs)
 ;;(package! treesit-auto)
 (package! matlab-mode)
+(package! kaolin-themes)

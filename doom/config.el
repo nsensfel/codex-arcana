@@ -32,9 +32,14 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-tomorrow-night)
+;;(setq doom-theme 'doom-tomorrow-night)
+(setq doom-theme 'kaolin-galaxy)
+(use-package! kaolin-themes
+	:config
+	(load-theme 'kaolin-galaxy t)
+	(kaolin-treemacs-theme));
 (setq doom-font "Hermit")
-(setq doom-font (font-spec :size 20))
+(setq doom-font (font-spec :size 18))
 
 (setq fancy-splash-image (concat doom-private-dir "splash.svg"))
 
@@ -183,8 +188,11 @@
 ;; This will also show trailing characters as they are useful to spot.
 (setq whitespace-style '(face tabs tab-mark trailing))
 
-(custom-set-faces
-	'(whitespace-tab ((t (:foreground "#636363"))))
+;;(custom-set-faces
+;;	'(whitespace-tab ((t (:foreground "#636363"))))
+;;)
+(add-hook! 'doom-load-theme-hook
+	(set-face-attribute 'whitespace-space nil :background nil)
 )
 
 (setq whitespace-display-mappings
