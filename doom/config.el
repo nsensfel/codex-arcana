@@ -140,6 +140,7 @@
 ;; Two callable functions for enabling/disabling tabs in Emacs
 (defun disable-tabs ()
 	(setq indent-tabs-mode nil)
+	(setq tab-width custom-tab-width)
 	(setq c-basic-offset custom-tab-width)
 	(setq c-ts-mode-indent-offset custom-tab-width)
 )
@@ -202,6 +203,48 @@
 (global-whitespace-mode) ; Enable whitespace mode everywhere
 
 (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+
+(defun highlight-indent-guides--bitmap-arrow (width height crep zrep)
+	(let*
+		(
+			(half_height (/ height 2))
+			rows
+		)
+		(dotimes (v height rows)
+			(setq rows
+				(cons
+					(let*
+						(
+							(first_part (if (<= v half_height) v (- height v)))
+							(last_part (max 0 (- half_height first_part 4)))
+						)
+						(if (>= (+ last_part first_part) width)
+							(make-list width crep)
+							(append
+								(make-list first_part crep)
+								(make-list (- width first_part last_part) zrep)
+								(make-list last_part crep)
+							)
+						)
+					)
+					rows
+				)
+			)
+		)
+	)
+)
+
+(after! highlight-indent-guides
+	(setq highlight-indent-guides-method 'bitmap)
+	(setq highlight-indent-guides-bitmap-function
+		'highlight-indent-guides--bitmap-arrow
+	)
+)
+
+(custom-set-faces!
+	'(highlight-indent-guides-odd-face :foreground "#333333" :background "#222222")
+	'(highlight-indent-guides-even-face :foreground "#444444" :background "#333333")
+)
 ;;(add-hook 'c-ts-mode-hook (setq-local indent-line-function 'indent-relative))
 ;;(after! lsp-mode
 ;;	(setq lsp-enable-on-type-formatting nil)
@@ -267,10 +310,11 @@
 ;;;; THEME ISSUE WITH DAEMON MODE ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun my-load-doom-theme (frame)
-  (select-frame frame)
-  (load-theme doom-theme t))
+	(select-frame frame)
+	(load-theme doom-theme t))
 
 (if (daemonp)
-    (add-hook 'after-make-frame-functions #'my-load-doom-theme)
-  (load-theme doom-theme t))
+	(add-hook 'after-make-frame-functions #'my-load-doom-theme)
+	(load-theme doom-theme t)
+)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
