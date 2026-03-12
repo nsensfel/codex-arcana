@@ -217,12 +217,13 @@
 						(
 							(first_part (if (<= v half_height) v (- height v)))
 							(last_part (max 0 (- half_height first_part 4)))
+							(mid_part (- width first_part last_part))
 						)
-						(if (>= (+ last_part first_part) width)
+						(if (< mid_part 0)
 							(make-list width crep)
 							(append
 								(make-list first_part crep)
-								(make-list (- width first_part last_part) zrep)
+								(make-list mid_part zrep)
 								(make-list last_part crep)
 							)
 						)
