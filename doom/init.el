@@ -104,7 +104,7 @@
 	magit             ; a git porcelain for Emacs
 	;;make              ; run make tasks from Emacs
 	;;pass              ; password manager for nerds
-	;;pdf               ; pdf enhancements
+	pdf               ; pdf enhancements
 	;;terraform         ; infrastructure as code
 	;;tmux              ; an API for interacting with tmux
 	tree-sitter       ; syntax and parsing, sitting in a tree...
@@ -130,7 +130,7 @@
 	;;elixir            ; erlang done right
 	;;elm               ; care for a cup of TEA?
 	emacs-lisp        ; drown in parentheses
-	(erlang +tree-sitter)            ; an elegant language for a more civilized age
+	(erlang +tree-sitter) ; an elegant language for a more civilized age
 	;;ess               ; emacs speaks statistics
 	;;factor
 	;;faust             ; dsp, but you get to keep your soul
@@ -196,5 +196,5 @@
 
 	:config
 	;;literate
-	(default +bindings +smartparens)
+	(default +bindings -smartparens)
 )

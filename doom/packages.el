@@ -60,3 +60,6 @@
 ;;(package! treesit-auto)
 (package! matlab-mode)
 (package! kaolin-themes)
+
+;; I'd like to, but this breaks stuff:
+;; (package! smartparens :disable t)

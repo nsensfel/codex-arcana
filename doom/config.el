@@ -242,10 +242,10 @@
 	)
 )
 
-(custom-set-faces!
-	'(highlight-indent-guides-odd-face :foreground "#333333" :background "#222222")
-	'(highlight-indent-guides-even-face :foreground "#444444" :background "#333333")
-)
+;;(custom-set-faces!
+;;	'(highlight-indent-guides-odd-face :foreground "#333333" :background "#222222")
+;;	'(highlight-indent-guides-even-face :foreground "#444444" :background "#333333")
+;;)
 ;;(add-hook 'c-ts-mode-hook (setq-local indent-line-function 'indent-relative))
 ;;(after! lsp-mode
 ;;	(setq lsp-enable-on-type-formatting nil)
@@ -279,6 +279,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; MISC PACKAGES ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Thanks, I hate it.
+(remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; GREN ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
