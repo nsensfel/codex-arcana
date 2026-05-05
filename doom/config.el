@@ -103,6 +103,11 @@
 		(eglot-ignored-server-capabilities '(:documentOnTypeFormattingProvider))
 )
 
+(after! eglot
+	(add-to-list 'eglot-server-programs
+		'(c-mode . ("ccls" "--init" "{\"cache\": {\"directory\": \"/tmp/ccls-cache\"}}"))
+	)
+)
 (use-package! corfu
 	:custom
 		(corfu-cycle t)           ;; Enable cycling for `corfu-next/previous'
@@ -200,8 +205,6 @@
 	'((tab-mark 9 [124 9] [92 9])) ; 124 is the ascii ID for '\|'
 )
 
-(global-whitespace-mode) ; Enable whitespace mode everywhere
-
 (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 
 (defun highlight-indent-guides--bitmap-arrow (width height crep zrep)
@@ -235,17 +238,25 @@
 	)
 )
 
+(global-whitespace-mode) ; Enable whitespace mode everywhere
+
 (after! highlight-indent-guides
-	(setq highlight-indent-guides-method 'bitmap)
-	(setq highlight-indent-guides-bitmap-function
-		'highlight-indent-guides--bitmap-arrow
+	;;(setq highlight-indent-guides-method 'fill)
+	;;(setq highlight-indent-guides-method 'bitmap)
+	(setq highlight-indent-guides-method 'character)
+	(setq highlight-indent-guides-character ?╠)
+	;;(setq highlight-indent-guides-bitmap-function
+	;;	'highlight-indent-guides--bitmap-arrow
+	;;)
+	(setq highlight-indent-guides-auto-enabled nil)
+	(custom-set-faces!
+		'(highlight-indent-guides-character-face
+			:foreground "cyan4"
+		)
 	)
 )
+(require 'highlight-indent-guides)
 
-;;(custom-set-faces!
-;;	'(highlight-indent-guides-odd-face :foreground "#333333" :background "#222222")
-;;	'(highlight-indent-guides-even-face :foreground "#444444" :background "#333333")
-;;)
 ;;(add-hook 'c-ts-mode-hook (setq-local indent-line-function 'indent-relative))
 ;;(after! lsp-mode
 ;;	(setq lsp-enable-on-type-formatting nil)
@@ -308,6 +319,17 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; FONTS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; TODO LISTS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package! magit-todos
+	:after magit
+	:preface (map! :leader "p t" #'magit-todos-list)
+	:config
+		(setq magit-todos-keyword-suffix "\\(?:([^)]+)\\)?:?") ; make colon optional
+		(define-key magit-todos-section-map "j" nil)
+)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; THEME ISSUE WITH DAEMON MODE ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
