@@ -61,6 +61,7 @@
 (package! matlab-mode)
 (package! kaolin-themes)
 (package! magit-todos)
+(package! prescient)
 
 ;; I'd like to, but this breaks stuff:
 ;; (package! smartparens :disable t)

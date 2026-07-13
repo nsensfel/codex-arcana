@@ -15,7 +15,9 @@ def off_and_mask (start: int, end: int):
 	print("Offset: " + myhex(start) + "U")
 	print("Mask: " + myhex(((1 << (end + 1)) - 1) & ~((1 << (start)) - 1)) + "U")
 
-if (len(sys.argv) != 3):
+if (len(sys.argv) == 2):
+	sys.argv.append(sys.argv[1])
+elif (len(sys.argv) != 3):
 	print("Expects arguments: START END")
 	exit(-1)
 
