@@ -62,6 +62,7 @@
 (package! kaolin-themes)
 (package! magit-todos)
 (package! prescient)
+(package! beacon)
 
 ;; I'd like to, but this breaks stuff:
 ;; (package! smartparens :disable t)
