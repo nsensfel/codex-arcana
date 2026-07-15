@@ -352,4 +352,5 @@
 (beacon-mode 1)
 (setq beacon-color "cyan4")
 
+(map! [remap evil-quit] #'kill-current-buffer)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
