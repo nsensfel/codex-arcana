@@ -204,7 +204,7 @@
 ;;	'(whitespace-tab ((t (:foreground "#636363"))))
 ;;)
 (add-hook! 'doom-load-theme-hook
-	(set-face-attribute 'whitespace-space nil :background nil)
+	(set-face-attribute 'whitespace-space nil :background nil :foreground "#444")
 )
 
 (setq whitespace-display-mappings
