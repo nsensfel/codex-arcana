@@ -150,6 +150,7 @@
 	(setq standard-indent custom-tab-width)
 	(setq c-basic-offset custom-tab-width)
 	(setq c-ts-mode-indent-offset custom-tab-width)
+	(setq indent-line-function #'indent-relative)
 )
 
 (defun enable-tabs ()
@@ -163,6 +164,7 @@
 	(setq lisp-indent-offset custom-tab-width)
 	(setq c-ts-mode-indent-offset custom-tab-width)
 	(setq c-ts-mode-indent-style "bsd")
+	(setq indent-line-function #'indent-relative)
 )
 
 ;; Hooks to Enable Tabs
