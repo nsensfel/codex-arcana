@@ -34,10 +34,13 @@
 ;; `load-theme' function. This is the default:
 ;;(setq doom-theme 'doom-tomorrow-night)
 (setq doom-theme 'kaolin-galaxy)
+
 (use-package! kaolin-themes
 	:config
-	(load-theme 'kaolin-galaxy t)
-	(kaolin-treemacs-theme));
+		(load-theme 'kaolin-galaxy t)
+		(kaolin-treemacs-theme)
+)
+
 (setq doom-font "Hermit")
 (setq doom-font (font-spec :size 18))
 
@@ -94,6 +97,7 @@
 ;;(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 ;;(add-hook 'treesit- #'tree-sitter-hl-mode)
 (setq treesit-font-lock-level 4)
+
 ;;(use-package! treesit-auto
 ;;	:config
 ;;		(global-treesit-auto-mode)
@@ -108,6 +112,7 @@
 		'(c-mode . ("ccls" "--init" "{\"cache\": {\"directory\": \"/tmp/ccls-cache\"}}"))
 	)
 )
+
 (use-package! corfu
 	:custom
 		(corfu-cycle t)           ;; Enable cycling for `corfu-next/previous'
@@ -121,6 +126,7 @@
 	:init
 		(global-corfu-mode)
 )
+
 (after! corfu
 	(map!
 		:map
@@ -320,7 +326,15 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; SET FILE TEMPLATES ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Documentation is on
+;; https://joaotavora.github.io/yasnippet/snippet-development.html
 (set-file-template! "/[a-zA-Z0-9_-]+\\.c$" :trigger "__project.c" :mode 'c-mode)
+(set-file-template! "/[a-zA-Z0-9_-]+\\.h$" :trigger "__project.h" :mode 'c-mode)
+(set-file-template!
+	"/[a-zA-Z0-9_-]+\\.gren$"
+	:trigger "__project.gren"
+	:mode 'gren-ts-mode
+)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; FONTS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -342,7 +356,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun my-load-doom-theme (frame)
 	(select-frame frame)
-	(load-theme doom-theme t))
+	(load-theme doom-theme t)
+)
 
 (if (daemonp)
 	(add-hook 'after-make-frame-functions #'my-load-doom-theme)
@@ -361,4 +376,5 @@
 (map! [remap evil-quit] #'kill-current-buffer)
 (map! [remap evil-save-and-close] #'with-editor-finish)
 (map! [remap evil-save-modified-and-close] #'with-editor-finish)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
