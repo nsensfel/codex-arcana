@@ -145,6 +145,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; TABULATIONS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Indentation is, by far, the most annoying thing to configure.
+
 ;; Create a variable for our preferred tab width
 (setq custom-tab-width 3)
 
@@ -201,6 +203,12 @@
 ;; For the vim-like motions of ">>" and "<<".
 (setq-default evil-shift-width custom-tab-width)
 
+(map! [remap evil-shift-left-line] #'indent-rigidly-left-to-tab-stop)
+(map! [remap evil-shift-right-line] #'indent-rigidly-right-to-tab-stop)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; WHITESPACES ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; WARNING: This will change your life
 ;; (OPTIONAL) Visualize tabs as a pipe character - "|"
 ;; This will also show trailing characters as they are useful to spot.
@@ -342,6 +350,12 @@
 	:mode 'erlang-mode
 )
 
+(set-file-template!
+	"/EXTFNS_[a-zA-Z0-9_-]+\\.m$"
+	:trigger "__atsource_fun.m"
+	:mode 'matlab-mode
+)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; FONTS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -382,7 +396,5 @@
 (map! [remap evil-quit] #'kill-current-buffer)
 (map! [remap evil-save-and-close] #'with-editor-finish)
 (map! [remap evil-save-modified-and-close] #'with-editor-finish)
-(map! [remap evil-shift-left-line] #'indent-rigidly-left-to-tab-stop)
-(map! [remap evil-shift-right-line] #'indent-rigidly-right-to-tab-stop)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
