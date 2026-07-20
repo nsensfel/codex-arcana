@@ -382,5 +382,7 @@
 (map! [remap evil-quit] #'kill-current-buffer)
 (map! [remap evil-save-and-close] #'with-editor-finish)
 (map! [remap evil-save-modified-and-close] #'with-editor-finish)
+(map! [remap evil-shift-left-line] #'indent-rigidly-left-to-tab-stop)
+(map! [remap evil-shift-right-line] #'indent-rigidly-right-to-tab-stop)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
