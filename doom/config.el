@@ -159,6 +159,7 @@
 	(setq c-basic-offset custom-tab-width)
 	(setq c-ts-mode-indent-offset custom-tab-width)
 	(setq indent-line-function #'indent-relative)
+	(setq evil-shift-width custom-tab-width)
 )
 
 (defun enable-tabs ()
@@ -171,6 +172,7 @@
 	(setq python-indent-offset custom-tab-width)
 	(setq lisp-indent-offset custom-tab-width)
 	(setq c-ts-mode-indent-offset custom-tab-width)
+	(setq evil-shift-width custom-tab-width)
 	(setq c-ts-mode-indent-style "bsd")
 	(setq indent-line-function #'indent-relative)
 )
@@ -396,5 +398,4 @@
 (map! [remap evil-quit] #'kill-current-buffer)
 (map! [remap evil-save-and-close] #'with-editor-finish)
 (map! [remap evil-save-modified-and-close] #'with-editor-finish)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
