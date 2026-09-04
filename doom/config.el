@@ -299,6 +299,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; KEYBINDINGS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq evil-want-minibuffer t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; PROJECT DIRECTORY ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -398,10 +399,51 @@
 (beacon-mode 1)
 (setq beacon-color "cyan4")
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; SEARCH AND REPLACE FUNCTIONS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun not-in-preview (my-fun)
 	(if (and (boundp 'evil-ex-argument) (not evil-ex-argument))
 		"(not-in-preview)"
 		(eval my-fun)
+	)
+)
+
+(defun pascal->snake (my-string)
+	(downcase
+		(let
+			(
+				(case-fold-search nil)
+			)
+			(replace-regexp-in-string
+				"\\([A-Za-z0-9]\\)\\([A-Z][a-z0-9]\\)"
+				"\\1_\\2"
+				my-string
+			)
+		)
+	)
+)
+
+(defun snake->camel (my-string)
+	(replace-regexp-in-string
+		"_\\([a-z]\\)"
+		(lambda (x) (upcase (substring x 1)))
+		my-string
+	)
+)
+
+(defun snake->pascal (my-string)
+	(let*
+		(
+			(result (snake->camel my-string))
+			;; case doesn't matter much here...
+			(index (string-match "[a-z]" result))
+		)
+		(concat
+			(substring result 0 index)
+			(upcase (substring result index (+ index 1)))
+			(substring result (+ index 1))
+		)
 	)
 )
 
