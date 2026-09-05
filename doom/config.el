@@ -403,6 +403,7 @@
 ;;;; SEARCH AND REPLACE FUNCTIONS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun not-in-preview (my-fun)
+	"Prevents the argument from being evaluated in a search and replace preview."
 	(if (and (boundp 'evil-ex-argument) (not evil-ex-argument))
 		"(not-in-preview)"
 		(eval my-fun)
