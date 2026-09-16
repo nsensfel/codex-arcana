@@ -64,6 +64,13 @@
 (package! prescient)
 (package! beacon)
 (package! buffer-terminator)
+(package! vertico-buffer-frame
+	:recipe
+		(
+			:host github
+			:repo "kn66/vertico-buffer-frame"
+		)
+)
 
 ;; I'd like to, but this breaks stuff:
 ;; (package! smartparens :disable t)

@@ -454,4 +454,34 @@
 (map! [remap evil-quit] #'kill-current-buffer)
 (map! [remap evil-save-and-close] #'with-editor-finish)
 (map! [remap evil-save-modified-and-close] #'with-editor-finish)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; CENTERED "POPUP" EFFECT ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package! vertico-buffer-frame
+	:after vertico
+	:config
+		(vertico-buffer-frame-mode 1)
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; DIRVISH DISPLAYS PREVIEWS IN BACKGROUND ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun dirvish-try-projectile-root (orig-fun &rest args)
+	(or
+		(apply orig-fun args)
+		(and
+			(fboundp 'projectile-project-root)
+			(projectile-project-root)
+		)
+	)
+)
+(use-package! dirvish
+	:config
+		(dirvish-peek-mode 1)
+		(advice-add 'dirvish--vc-root-dir
+			:around #'dirvish-try-projectile-root
+		)
+)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
